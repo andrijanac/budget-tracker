@@ -1,0 +1,20 @@
+{
+    "transactions": [
+      {
+        "id": 1,
+        "type": "INCOME",
+        "amount": 50000,
+        "category": "Salary",
+        "description": "Monthly paycheck",
+        "date": "2025-08-12"
+      },
+      {
+        "id": 2,
+        "type": "EXPENSE",
+        "amount": 3000,
+        "category": "Groceries",
+        "description": "Weekly groceries shopping",
+        "date": "2025-08-12"
+      }
+    ]
+  }
