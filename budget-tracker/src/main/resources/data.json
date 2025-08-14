@@ -2,7 +2,7 @@
   {
     "id": 1,
     "type": "INCOME",
-    "amount": 50000,
+    "amount": 50000.0,
     "category": "Salary",
     "description": "Monthly paycheck",
     "date": "2025-08-12"
@@ -10,9 +10,33 @@
   {
     "id": 2,
     "type": "EXPENSE",
-    "amount": 3000,
+    "amount": 3000.0,
     "category": "Groceries",
     "description": "Weekly groceries shopping",
     "date": "2025-08-12"
+  },
+  {
+    "id": 3,
+    "type": "INCOME",
+    "amount": 500.0,
+    "category": "TableStar",
+    "description": "Mobile app",
+    "date": "2025-08-14"
+  },
+  {
+    "id": 4,
+    "type": "EXPENSE",
+    "amount": 350.0,
+    "category": "Food",
+    "description": "McDonalds",
+    "date": "2025-08-14"
+  },
+  {
+    "id": 5,
+    "type": "INCOME",
+    "amount": 2000.0,
+    "category": "Gift",
+    "description": "Dad present",
+    "date": "2025-08-14"
   }
 ]
