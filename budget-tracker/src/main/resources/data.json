@@ -38,5 +38,13 @@
     "category": "Gift",
     "description": "Dad present",
     "date": "2025-08-14"
+  },
+  {
+    "id": 6,
+    "type": "EXPENSE",
+    "amount": 999.0,
+    "category": "Vulkan",
+    "description": "Buying a book",
+    "date": "2025-08-14"
   }
 ]
