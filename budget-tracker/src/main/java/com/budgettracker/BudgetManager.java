@@ -63,6 +63,10 @@ public class BudgetManager {
         }
     }
 
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
     public void saveToJson() throws Exception {
         String json = gson.toJson(transactions);
         Files.writeString(

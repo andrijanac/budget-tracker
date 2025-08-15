@@ -46,5 +46,13 @@
     "category": "Vulkan",
     "description": "Buying a book",
     "date": "2025-08-14"
+  },
+  {
+    "id": 7,
+    "type": "INCOME",
+    "amount": 3000.0,
+    "category": "MojeKrpice",
+    "description": "Sold a dress online",
+    "date": "2025-08-15"
   }
 ]
