@@ -32,14 +32,6 @@
     "date": "2025-08-14"
   },
   {
-    "id": 5,
-    "type": "INCOME",
-    "amount": 2000.0,
-    "category": "Gift",
-    "description": "Dad present",
-    "date": "2025-08-14"
-  },
-  {
     "id": 6,
     "type": "EXPENSE",
     "amount": 999.0,

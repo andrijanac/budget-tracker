@@ -67,6 +67,10 @@ public class BudgetManager {
         return transactions;
     }
 
+    public boolean deleteById(int id) {
+        return transactions.removeIf(t -> t.getId() == id);
+    }
+
     public void saveToJson() throws Exception {
         String json = gson.toJson(transactions);
         Files.writeString(

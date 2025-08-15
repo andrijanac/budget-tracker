@@ -17,7 +17,8 @@ public class App {
             System.out.println("2) Add EXPENSE");
             System.out.println("3) Show totals");
             System.out.println("4) List transactions");
-            System.out.println("5) Exit");
+            System.out.println("5) Delete by ID");
+            System.out.println("6) Exit");
             System.out.print("Choose: ");
 
             String choice = in.nextLine().trim();
@@ -49,7 +50,31 @@ public class App {
                     }
                     break;
 
-                case "5":
+                case "5": {
+                        if (bm.getTransactions().isEmpty()) {
+                            System.out.println("No transactions to delete.");
+                            break;
+                        }
+                    
+                        bm.getTransactions().forEach(t ->
+                            System.out.printf("#%d | %s | %.2f | %s | %s%n",
+                                t.getId(), t.getType(), t.getAmount(), t.getCategory(), t.getDate())
+                        );
+                    
+                        System.out.print("Enter ID to delete: ");
+                        int id = Integer.parseInt(in.nextLine().trim());
+                    
+                        boolean deleted = bm.deleteById(id);
+                        if (deleted) {
+                            bm.saveToJson();
+                            System.out.println("Deleted and saved.");
+                        } else {
+                            System.out.println("ID not found.");
+                        }
+                        break;
+                    }
+
+                case "6":
                     System.out.println("Bye!");
                     return;
 
