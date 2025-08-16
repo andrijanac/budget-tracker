@@ -46,5 +46,13 @@
     "category": "MojeKrpice",
     "description": "Sold a dress online",
     "date": "2025-08-15"
+  },
+  {
+    "id": 8,
+    "type": "INCOME",
+    "amount": 1500.0,
+    "category": "MojeKrpice",
+    "description": "Sold a bag",
+    "date": "2025-08-16"
   }
 ]

@@ -1,5 +1,10 @@
 package com.budgettracker;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.util.stream.Collectors;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -46,20 +51,22 @@ public class BudgetManager {
         return getTotalIncome() - getTotalExpense();
     }
 
-    public void loadFromJson() throws Exception {
+    public void loadFromJson() throws IOException {
         transactions.clear();
         if (!Files.exists(jsonPath)) return;
-
-        String content = Files.readString(jsonPath).trim();
-        if (content.isEmpty()) return;
-
-        List<Transaction> loaded = gson.fromJson(
+    
+        try (BufferedReader br = Files.newBufferedReader(jsonPath)) {
+            String content = br.lines().collect(Collectors.joining());
+            if (content.isBlank()) return;
+    
+            List<Transaction> loaded = gson.fromJson(
                 content,
                 new TypeToken<List<Transaction>>() {}.getType()
-        );
-        if (loaded != null) {
-            transactions.addAll(loaded);
-            nextId = transactions.stream().mapToInt(Transaction::getId).max().orElse(0) + 1;
+            );
+            if (loaded != null) {
+                transactions.addAll(loaded);
+                nextId = transactions.stream().mapToInt(Transaction::getId).max().orElse(0) + 1;
+            }
         }
     }
 
@@ -71,14 +78,14 @@ public class BudgetManager {
         return transactions.removeIf(t -> t.getId() == id);
     }
 
-    public void saveToJson() throws Exception {
+    public void saveToJson() throws IOException {
         String json = gson.toJson(transactions);
-        Files.writeString(
+        try (BufferedWriter bw = Files.newBufferedWriter(
                 jsonPath,
-                json,
                 StandardOpenOption.CREATE,
-                StandardOpenOption.TRUNCATE_EXISTING
-        );
+                StandardOpenOption.TRUNCATE_EXISTING)) {
+            bw.write(json);
+        }
     }
 
     private void validate(double amount, String category) {
