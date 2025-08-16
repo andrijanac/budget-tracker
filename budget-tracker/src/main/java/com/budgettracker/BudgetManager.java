@@ -25,24 +25,24 @@ public class BudgetManager {
 
     public void addIncome(double amount, String category, String description, String date) {
         validate(amount, category);
-        transactions.add(new Transaction(nextId++, "INCOME", amount, category, description, date));
+        transactions.add(new Transaction(nextId++, TransactionType.INCOME, amount, category, description, date));
     }
 
     public void addExpense(double amount, String category, String description, String date) {
         validate(amount, category);
-        transactions.add(new Transaction(nextId++, "EXPENSE", amount, category, description, date));
+        transactions.add(new Transaction(nextId++, TransactionType.EXPENSE, amount, category, description, date));
     }
 
     public double getTotalIncome() {
         return transactions.stream()
-                .filter(t -> "income".equalsIgnoreCase(t.getType()))
+                .filter(t -> t.getType() == TransactionType.INCOME)
                 .mapToDouble(Transaction::getAmount)
                 .sum();
     }
 
     public double getTotalExpense() {
         return transactions.stream()
-                .filter(t -> "expense".equalsIgnoreCase(t.getType()))
+                .filter(t -> t.getType() == TransactionType.EXPENSE)
                 .mapToDouble(Transaction::getAmount)
                 .sum();
     }

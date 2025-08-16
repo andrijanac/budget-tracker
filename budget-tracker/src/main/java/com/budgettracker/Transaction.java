@@ -3,7 +3,7 @@ package com.budgettracker;
 public class Transaction {
 
     private int id;
-    private String type;
+    private TransactionType type;
     private double amount;
     private String category;
     private String description;
@@ -12,7 +12,7 @@ public class Transaction {
     public Transaction() {
     }
 
-    public Transaction(int id, String type, double amount, String category, String description, String date) {
+    public Transaction(int id, TransactionType type, double amount, String category, String description, String date) {
         this.id = id;
         this.type = type;
         this.amount = amount;
@@ -29,11 +29,11 @@ public class Transaction {
         this.id = id;
     }
 
-    public String getType() {
+    public TransactionType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TransactionType type) {
         this.type = type;
     }
 
@@ -71,7 +71,7 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "Transaction [id=" + id + ", type=" + type + ", amount=" + amount + ", category=" + category
+        return "Transaction [id=" + id + ", type=" + type.name() + ", amount=" + amount + ", category=" + category
                 + ", description=" + description + ", date=" + date + "]";
     }
 

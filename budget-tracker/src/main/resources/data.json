@@ -54,5 +54,13 @@
     "category": "MojeKrpice",
     "description": "Sold a bag",
     "date": "2025-08-16"
+  },
+  {
+    "id": 9,
+    "type": "EXPENSE",
+    "amount": 151.0,
+    "category": "Coffee",
+    "description": "Buying a drink",
+    "date": "2025-08-16"
   }
 ]
