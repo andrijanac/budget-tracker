@@ -7,13 +7,14 @@ import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 public class BudgetManager {
 
@@ -22,6 +23,9 @@ public class BudgetManager {
 
     private final Path jsonPath = Path.of("src/main/resources/data.json");
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+    private static final Type TX_LIST_TYPE =
+        new com.google.gson.reflect.TypeToken<List<Transaction>>() {}.getType();
 
     public void addIncome(double amount, String category, String description, String date) {
         validate(amount, category);
@@ -61,7 +65,7 @@ public class BudgetManager {
     
             List<Transaction> loaded = gson.fromJson(
                 content,
-                new TypeToken<List<Transaction>>() {}.getType()
+                TX_LIST_TYPE
             );
             if (loaded != null) {
                 transactions.addAll(loaded);
@@ -71,7 +75,7 @@ public class BudgetManager {
     }
 
     public List<Transaction> getTransactions() {
-        return transactions;
+        return Collections.unmodifiableList(transactions);
     }
 
     public boolean deleteById(int id) {

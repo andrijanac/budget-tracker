@@ -1,6 +1,7 @@
 package com.budgettracker;
 
 import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
 
 public class App {
 
@@ -9,7 +10,7 @@ public class App {
         BudgetManager bm = new BudgetManager();
         bm.loadFromJson();
 
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in, StandardCharsets.UTF_8);
 
         while (true) {
             System.out.println("\n==== Budget Tracker ====");
