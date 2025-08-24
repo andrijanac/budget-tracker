@@ -2,6 +2,7 @@ package com.budgettracker;
 
 import java.util.Scanner;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
 
 public class App {
 
@@ -26,11 +27,11 @@ public class App {
 
             switch (choice) {
                 case "1":
-                    addTransactionViaConsole(in, bm, "INCOME");
+                    addTransactionViaConsole(in, bm, TransactionType.INCOME);
                     break;
 
                 case "2":
-                    addTransactionViaConsole(in, bm, "EXPENSE");
+                    addTransactionViaConsole(in, bm, TransactionType.EXPENSE);
                     break;
 
                 case "3":
@@ -85,22 +86,24 @@ public class App {
         }
     }
 
-    private static void addTransactionViaConsole(Scanner in, BudgetManager bm, String type) {
+    private static void addTransactionViaConsole(Scanner in, BudgetManager bm, TransactionType type) {
 
         try {
             System.out.print("Amount: ");
             double amount = Double.parseDouble(in.nextLine().trim());
 
-            System.out.print("Category: ");
-            String category = in.nextLine().trim();
+            System.out.print("Category name: ");
+            String categoryName = in.nextLine().trim();
+
+            Category category = new Category(0, categoryName);
 
             System.out.print("Description: ");
             String description = in.nextLine().trim();
 
             System.out.print("Date (YYYY-MM-DD): ");
-            String date = in.nextLine().trim();
+            LocalDate date = LocalDate.parse(in.nextLine().trim());
 
-            if ("INCOME".equals(type)) {
+            if (type == TransactionType.INCOME) {
                 bm.addIncome(amount, category, description, date);
             } else {
                 bm.addExpense(amount, category, description, date);

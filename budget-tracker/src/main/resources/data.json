@@ -2,65 +2,45 @@
   {
     "id": 1,
     "type": "INCOME",
-    "amount": 50000.0,
-    "category": "Salary",
-    "description": "Monthly paycheck",
-    "date": "2025-08-12"
+    "amount": 80000.0,
+    "category": {
+      "id": 0,
+      "name": "Salary"
+    },
+    "description": "Work",
+    "date": "2025-08-23"
   },
   {
     "id": 2,
     "type": "EXPENSE",
-    "amount": 3000.0,
-    "category": "Groceries",
-    "description": "Weekly groceries shopping",
-    "date": "2025-08-12"
+    "amount": 800.0,
+    "category": {
+      "id": 0,
+      "name": "Food"
+    },
+    "description": "McDonalds",
+    "date": "2025-08-23"
   },
   {
     "id": 3,
-    "type": "INCOME",
-    "amount": 500.0,
-    "category": "TableStar",
-    "description": "Mobile app",
-    "date": "2025-08-14"
+    "type": "EXPENSE",
+    "amount": 2200.0,
+    "category": {
+      "id": 0,
+      "name": "Shopping"
+    },
+    "description": "Sephora and Zara",
+    "date": "2025-08-23"
   },
   {
     "id": 4,
-    "type": "EXPENSE",
-    "amount": 350.0,
-    "category": "Food",
-    "description": "McDonalds",
-    "date": "2025-08-14"
-  },
-  {
-    "id": 6,
-    "type": "EXPENSE",
-    "amount": 999.0,
-    "category": "Vulkan",
-    "description": "Buying a book",
-    "date": "2025-08-14"
-  },
-  {
-    "id": 7,
-    "type": "INCOME",
-    "amount": 3000.0,
-    "category": "MojeKrpice",
-    "description": "Sold a dress online",
-    "date": "2025-08-15"
-  },
-  {
-    "id": 8,
     "type": "INCOME",
     "amount": 1500.0,
-    "category": "MojeKrpice",
-    "description": "Sold a bag",
-    "date": "2025-08-16"
-  },
-  {
-    "id": 9,
-    "type": "EXPENSE",
-    "amount": 151.0,
-    "category": "Coffee",
-    "description": "Buying a drink",
-    "date": "2025-08-16"
+    "category": {
+      "id": 0,
+      "name": "TableStar"
+    },
+    "description": "App",
+    "date": "2025-08-23"
   }
 ]

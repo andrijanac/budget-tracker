@@ -1,18 +1,20 @@
 package com.budgettracker;
 
+import java.time.LocalDate;
+
 public class Transaction {
 
     private int id;
     private TransactionType type;
     private double amount;
-    private String category;
+    private Category category;
     private String description;
-    private String date;
+    private LocalDate date;
     
     public Transaction() {
     }
 
-    public Transaction(int id, TransactionType type, double amount, String category, String description, String date) {
+    public Transaction(int id, TransactionType type, double amount, Category category, String description, LocalDate date) {
         this.id = id;
         this.type = type;
         this.amount = amount;
@@ -45,11 +47,11 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
@@ -61,17 +63,17 @@ public class Transaction {
         this.description = description;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
     @Override
     public String toString() {
-        return "Transaction [id=" + id + ", type=" + type.name() + ", amount=" + amount + ", category=" + category
+        return "Transaction [id=" + id + ", type=" + type.name() + ", amount=" + amount + ", category=" + category.getName()
                 + ", description=" + description + ", date=" + date + "]";
     }
 
