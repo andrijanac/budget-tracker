@@ -26,4 +26,3 @@ To run the application, Maven must be installed.
 ## Note  
 This project was created as part of the Software Development Automation course.  
 The focus is on demonstrating the use of Maven, JUnit, and static analysis tools within a practical example.
-```
