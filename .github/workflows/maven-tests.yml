@@ -1,0 +1,28 @@
+name: Maven Tests
+
+on:
+  push:
+    branches: [ main, ci-tests ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: budget-tracker
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Run unit tests
+        run: mvn -B -q test
